@@ -1,0 +1,35 @@
+name: Build
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  build:
+    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node_version: [14.05, 15.0]
+        os: [ubuntu-latest]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: install prerequisites ${{ matrix.node_version }}
+      run: |
+          sudo apt-get update && sudo apt-get install expect python3-setuptools python3-pip
+          sudo pip3 install -U docker-compose
+          docker --version && docker-compose --version
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: npm install, build, and test
+      run: |
+        npm install
+
+        npm run lint
+        npm run test
+        sh bin/test.sh
+      env:
+        PROJECT_NAME: wemake_vue_demo

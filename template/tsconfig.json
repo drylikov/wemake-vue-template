@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": [
+      "esnext",
+      "esnext.asynciterable",
+      "dom"
+    ],
+    "allowJs": true,
+    "checkJs": true,
+    "sourceMap": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": [
+        "./client/*"
+      ],
+      "@/*": [
+        "./tests/*"
+      ]
+    },
+    "types": [
+      "@nuxt/types",
+      "@types/webpack-env",
+      "jest"
+    ]
+  },
+  "include": [
+    "nuxt.config.ts",
+    "client/**/*.vue",
+    "client/**/*.ts",
+    "tests/**/*.ts",
+    "index.d.ts"
+  ]
+}

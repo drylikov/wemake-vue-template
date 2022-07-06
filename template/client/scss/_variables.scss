@@ -1,0 +1,21 @@
+// This file should contain all SCSS variables,
+// that are used in the project.
+
+// Colors
+$color-white: rgb(255, 255, 255);
+$color-black: rgb(0, 0, 0);
+
+// Buttons
+$button-color-green: rgb(162, 220, 162);
+$button-color-red: rgb(239, 188, 209);
+
+$button-color-main: rgb(64, 158, 255);
+
+// Global exports
+:export {
+  // Any values that need to be accessible from JavaScript
+  // outside of a Vue component can be defined here, prefixed
+  // with `var-` to avoid conflicts with existing variables.
+  // For example:
+  // $var-color-white: $color-white;
+}
